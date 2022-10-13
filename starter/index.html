@@ -21,9 +21,11 @@
 	<body>
 
 		<!-- BEGIN #app -->
+		
 		<div id="app" class="app-without-sidebar">
-			<div class="float-end me-50px mb-50px position-fixed d-md-none d-inline bottom-0 mb-50px end-0 me-50px float-btn">
-				<button class="btn btn-success circlr h1" onclick="showAlert()"><i class="bi bi-plus"></i> 
+			<!--Add task float button-->
+			<div type="button" data-bs-toggle="modal" data-bs-target="#modal-task" class="float-end me-50px mb-50px position-fixed d-md-none d-inline bottom-0 mb-50px end-0 me-50px float-btn">
+				<button class="btn btn-success circlr "><i class="bi bi-plus h1"></i> </button>
 			</div>
 			<!-- BEGIN #content -->
 			<div id="content" class="app-content main-style">
@@ -39,18 +41,20 @@
 						</h1>
 						<!-- END page-header -->
 					</div>
-
+					<!--Add task button-->
 					<div class="col-xxl-6 d-md-inline col-md-6 d-none  text-end">
-						<button class="btn btn-success rounded-pill " onclick="showAlert()"><i class="bi bi-plus"></i><a>&emsp;Add Task&emsp;</a>
+						<button type="button" class="btn btn-success rounded-pill"  data-bs-toggle="modal" data-bs-target="#modal-task"><i class="bi bi-plus h5" ></i><a>&emsp;Add Task&emsp;</a></button>
 					</div>
 				</div>
+				
+				<!--carts container-->
 				<div class="container-fluid">
 					<div class="row">
+						<!--cart to do-->
 						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4"> 
 							<div>
 								<div class="col-12 rounded-top bg-dark text-white p-3">
 									<h4 class="">To do (<span id="to-do-tasks-count">5</span>)</h4>
-
 								</div>
 								<div class="" id="to-do-tasks">
 									<!-- TO DO TASKS HERE -->
@@ -193,6 +197,7 @@
 								</div>
 							</div>
 						</div>
+						<!--cart progress-->
 						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4">
 							<div class="">
 								<div class="col-12 rounded-top bg-dark text-white p-3">
@@ -286,6 +291,7 @@
 								</div>
 							</div>
 						</div>
+						<!--cart done-->
 						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4 ">
 							<div class="">
 								<div class="col-12 rounded-top bg-dark text-white p-3">
@@ -401,14 +407,43 @@
 		<!-- END #app -->
 
 		<!-- TASK MODAL -->
-		<div class="modal fade" id="modal-task">
-			<!-- Modal content goes here -->
-		</div>
+			<div class="modal fade" id="modal-task">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Contact Us</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="mb-3">
+									<label class="form-label ">Name</label>
+									<input type="text" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label class="form-label ">Email</label>
+									<input type="email" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label class="form-label ">Type ypur message here</label>
+									<textarea class="form-control"></textarea>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="submit" class="btn btn-danger">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		
 
 		<!-- ================== BEGIN core-js ================== -->
+		
 		<script src="assets/js/vendor.min.js"></script>
 		<script src="assets/js/app.min.js"></script>
-		<script src="assets/js/js.js"></script>
+		<script src="assets/js/js.js"></script></body>
 		<!-- ================== END core-js ================== -->
 	</body>
 </html>
