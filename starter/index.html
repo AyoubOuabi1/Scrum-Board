@@ -22,8 +22,11 @@
 
 		<!-- BEGIN #app -->
 		<div id="app" class="app-without-sidebar">
+			<div class="float-end me-50px mb-50px position-fixed d-md-none d-inline bottom-0 mb-50px end-0 me-50px float-btn">
+				<button class="btn btn-success circlr h1" onclick="showAlert()"><i class="bi bi-plus"></i> 
+			</div>
 			<!-- BEGIN #content -->
-			<div id="content" class="app-content main-style z-index-1">
+			<div id="content" class="app-content main-style">
 				<div class="row">
 					<div class="col-xxl-6 col-md-6">
 						<ol class="breadcrumb h4">
@@ -38,12 +41,12 @@
 					</div>
 
 					<div class="col-xxl-6 d-md-inline col-md-6 d-none  text-end">
-						<button class="btn btn-success rounded-pill"><i class="bi bi-plus"></i><a>&emsp;Add Task&emsp;</a>
+						<button class="btn btn-success rounded-pill " onclick="showAlert()"><i class="bi bi-plus"></i><a>&emsp;Add Task&emsp;</a>
 					</div>
 				</div>
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4">
+						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4"> 
 							<div>
 								<div class="col-12 rounded-top bg-dark text-white p-3">
 									<h4 class="">To do (<span id="to-do-tasks-count">5</span>)</h4>
@@ -51,7 +54,7 @@
 								</div>
 								<div class="" id="to-do-tasks">
 									<!-- TO DO TASKS HERE -->
-									<button class="col-12 text-start btn-light text-black border-end-0">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-exclamation-octagon text-red mx-2 "></i>
@@ -78,7 +81,7 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 ">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2 ">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-exclamation-octagon text-red mx-xxl-2 mx-md-0
@@ -112,7 +115,7 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-exclamation-octagon text-red mx-xxl-2 mx-md-0
@@ -138,7 +141,7 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-exclamation-octagon text-red mx-xxl-2 mx-md-0
@@ -163,7 +166,7 @@
 
 									</button>
 									<button class="col-12 text-start btn-light text-black border-end-0
-										border-bottom-0 rounded-bottom ">
+										border-bottom-0 rounded-bottom shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-exclamation-octagon text-red mx-xxl-2 mx-md-0
@@ -197,7 +200,7 @@
 								</div>
 								<div class="" id="in-progress-tasks">
 									<!-- IN PROGRESS TASKS HERE -->
-									<button class="col-12 text-start btn-light text-black border-end-0">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-arrow-clockwise text-green mx-xxl-2 mx-md-0 mx-sm-0
@@ -217,7 +220,7 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-arrow-clockwise text-green mx-2 "></i></div>
@@ -238,7 +241,7 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-arrow-clockwise text-green mx-2 "></i></div>
@@ -260,7 +263,7 @@
 
 									</button>
 									<button class="col-12 text-start btn-light text-black border-end-0
-										border-bottom-0 rounded-bottom">
+										border-bottom-0 rounded-bottom shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-arrow-clockwise text-green mx-2 "></i></div>
@@ -291,7 +294,7 @@
 								</div>
 								<div class=" " id="done-tasks">
 									<!-- DONE TASKS HERE -->
-									<button class="col-12 text-start btn-light text-black border-end-0">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-check-circle text-green mx-xxl-2 mx-md-0 mx-sm-0 "></i></div>
@@ -311,7 +314,7 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-check-circle text-green mx-xxl-2 mx-md-0 mx-sm-0 "></i></div>
@@ -334,7 +337,7 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-check-circle text-green mx-xxl-2 mx-md-0 mx-sm-0 "></i></div>
@@ -356,8 +359,7 @@
 											</div>
 										</div>
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0
-										border-bottom-0 rounded-bottom">
+									<button class="col-12 text-start btn-light text-black border-end-0 border-bottom-0 rounded-bottom shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
 												<i class=" bi bi-check-circle text-green mx-xxl-2 mx-md-0 mx-sm-0 "></i></div>
@@ -389,9 +391,7 @@
 			</div>
 			<!-- END #content -->
 
-			<div class="float-end me-50px mb-50px position-fixed  z-index-2">
-				<button class="btn btn-success circlr h1"><i class="bi bi-plus"></i> 
-			</div>
+			 
 			<!-- BEGIN scroll-top-btn -->
 			<a href="javascript:;" class="btn btn-icon btn-circle btn-success
 				btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
@@ -408,6 +408,7 @@
 		<!-- ================== BEGIN core-js ================== -->
 		<script src="assets/js/vendor.min.js"></script>
 		<script src="assets/js/app.min.js"></script>
+		<script src="assets/js/js.js"></script>
 		<!-- ================== END core-js ================== -->
 	</body>
 </html>

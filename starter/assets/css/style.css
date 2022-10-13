@@ -8,4 +8,9 @@
     background-size: 360px;
     background-position: right bottom;
 }
-
+#content{
+    z-index: 1;
+}
+.float-btn{
+    z-index: 2;
+}
