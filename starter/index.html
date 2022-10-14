@@ -25,7 +25,7 @@
 		<div id="app" class="app-without-sidebar">
 			<!--Add task float button-->
 			<div type="button" data-bs-toggle="modal" data-bs-target="#modal-task" class="float-end me-50px mb-50px position-fixed d-md-none d-inline bottom-0 mb-50px end-0 me-50px float-btn">
-				<button class="btn btn-success circlr "><i class="bi bi-plus h1"></i> </button>
+				<button class="btn backgound-btn text-white circlr "><i class="bi bi-plus h1"></i> </button>
 			</div>
 			<!-- BEGIN #content -->
 			<div id="content" class="app-content main-style">
@@ -43,7 +43,7 @@
 					</div>
 					<!--Add task button-->
 					<div class="col-xxl-6 d-md-inline col-md-6 d-none  text-end">
-						<button type="button" class="btn btn-success rounded-pill"  data-bs-toggle="modal" data-bs-target="#modal-task"><i class="bi bi-plus h5" ></i><a>&emsp;Add Task&emsp;</a></button>
+						<button type="button" class="btn text-white backgound-btn rounded-pill"  data-bs-toggle="modal" data-bs-target="#modal-task"><i class="bi bi-plus h5" ></i><a>&emsp;Add Task&emsp;</a></button>
 					</div>
 				</div>
 				
@@ -53,15 +53,15 @@
 						<!--cart to do-->
 						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4"> 
 							<div>
-								<div class="col-12 rounded-top bg-dark text-white p-3">
+								<div class="col-12 rounded-top cart-backgound text-white p-3">
 									<h4 class="">To do (<span id="to-do-tasks-count">5</span>)</h4>
 								</div>
 								<div class="" id="to-do-tasks">
 									<!-- TO DO TASKS HERE -->
 									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-exclamation-octagon text-red mx-2 "></i>
+											<div class="col-1 ">
+												<i class=" bi bi-exclamation-octagon text-red h1"></i>
 											</div>
 											<div class="col-11 ">
 												<div class="h3">Keep all the updated requirements in one place</div>
@@ -88,8 +88,7 @@
 									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2 ">
 											<div class="col-1 h1 ">
-												<i class=" bi bi-exclamation-octagon text-red mx-xxl-2 mx-md-0
-													mx-sm-0 "></i>
+												<i class=" bi bi-exclamation-octagon text-red h1"></i>
 											</div>
 
 											<div class="col-11">
@@ -119,11 +118,10 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none border-bottom-0">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
-												<i class=" bi bi-exclamation-octagon text-red mx-xxl-2 mx-md-0
-													mx-sm-0"></i></div>
+												<i class=" bi bi-exclamation-octagon text-red h1"></i></div>
 											<div class="col-11">
 												<div class="h3">Provide examples, credentials, etc</div>
 												<div class="">
@@ -145,62 +143,13 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
-										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-exclamation-octagon text-red mx-xxl-2 mx-md-0
-													mx-sm-0"></i></div>
-											<div class="col-11">
-												<div class="h3">Annotate</div>
-												<div class="">
-													<div class="">#4 created in 2022-10-08</div>
-													<div class="" title="The mockup provided can sometimes be confusing
-														for developers. Especially if it contains much more content than
-														the scope of the task described. Drop a couple of arrows, outlines
-														and annotations here and there to emphasize what are the important
-														parts of the mockup from the task requirements perspective.">The
-														mockup provided can sometimes be confusing for deve...</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary p-2">High</span>
-													<span class="btn btn-secondary p-2">Feature</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0
-										border-bottom-0 rounded-bottom shadow-none">
-										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-exclamation-octagon text-red mx-xxl-2 mx-md-0
-													mx-sm-0"></i>
-											</div>
-											<div class="col-11">
-												<div class="h3">Use charts and diagrams</div>
-												<div class="">
-													<div class="">#5 created in 2022-10-08</div>
-													<div class="" title="While it is not always necessary, sometimes it
-														might be beneficial to prepare a flowchart, a block diagram or
-														some other kind of concept visualization that will render it easy
-														for the developer to comprehend the task and its scope.">While it
-														is not always necessary, sometimes it might be...</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary p-2">High</span>
-													<span class="btn btn-secondary p-2">Feature</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
 								</div>
 							</div>
 						</div>
 						<!--cart progress-->
 						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4">
 							<div class="">
-								<div class="col-12 rounded-top bg-dark text-white p-3">
+								<div class="col-12 rounded-top cart-backgound text-white p-3">
 									<h4 class="">In Progress (<span id="in-progress-tasks-count">4</span>)</h4>
 								</div>
 								<div class="" id="in-progress-tasks">
@@ -208,8 +157,7 @@
 									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
-												<i class=" bi bi-arrow-clockwise text-green mx-xxl-2 mx-md-0 mx-sm-0
-													"></i></div>
+												<i class=" bi bi-arrow-clockwise text-green h1"></i></div>
 											<div class="col-11">
 												<div class="h3">Describe steps to reproduce an issue</div>
 												<div class="">
@@ -225,10 +173,10 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
+									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none border-bottom-0">
 										<div class="row mt-2">
 											<div class="col-1 h1 ">
-												<i class=" bi bi-arrow-clockwise text-green mx-2 "></i></div>
+												<i class=" bi bi-arrow-clockwise text-green h1"></i></div>
 											<div class="col-11">
 												<div class="h3">Provide access</div>
 												<div class="">
@@ -246,55 +194,14 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
-										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-arrow-clockwise text-green mx-2 "></i></div>
-											<div class="col-11">
-												<div class="h3">Provide environment information</div>
-												<div class="">
-													<div class="">#8 created in 2022-10-08</div>
-													<div class="" title="i.e., browser version, operating system
-														version etc. Sometimes a list of installed browser plugins and
-														extensions might be helpful as well.">i.e., browser version,
-														operating system version etc. So...</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary p-2">High</span>
-													<span class="btn btn-secondary p-2">Bug</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0
-										border-bottom-0 rounded-bottom shadow-none">
-										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-arrow-clockwise text-green mx-2 "></i></div>
-											<div class="col-11">
-												<div class="h3">Provide a link to an exception and/or a stack trace</div>
-												<div class="">
-													<div class="">#9 created in 2022-10-08</div>
-													<div class="" title="as investigating those is usually the first
-														step to take in resolving the problem.">as investigating those is
-														usually the first step to tak...</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary p-2">High</span>
-													<span class="btn btn-secondary p-2">Bug</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
+									
 								</div>
 							</div>
 						</div>
 						<!--cart done-->
 						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4 ">
 							<div class="">
-								<div class="col-12 rounded-top bg-dark text-white p-3">
+								<div class="col-12 rounded-top cart-backgound text-white p-3">
 									<h4 class="">Done (<span id="done-tasks-count">4</span>)</h4>
 
 								</div>
@@ -302,8 +209,8 @@
 									<!-- DONE TASKS HERE -->
 									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
 										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-check-circle text-green mx-xxl-2 mx-md-0 mx-sm-0 "></i></div>
+											<div class="col-1 ">
+												<i class=" bi bi-check-circle text-green h1"></i></div>
 											<div class="col-11">
 												<div class="h3">Provide access to logs</div>
 												<div class="">
@@ -320,10 +227,10 @@
 										</div>
 
 									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
+									<button class="col-12 text-start btn-light text-black border-end-0 border-bottom-0 shadow-none">
 										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-check-circle text-green mx-xxl-2 mx-md-0 mx-sm-0 "></i></div>
+											<div class="col-1 ">
+												<i class=" bi bi-check-circle text-green  h1"></i></div>
 											<div class="col-11">
 												<div class="h3">Provide access to the affected server or database
 													dump</div>
@@ -334,51 +241,6 @@
 														access the original data that might have played a role in the
 														problem.">If it is possible and when it does not violate
 														security...</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary p-2">High</span>
-													<span class="btn btn-secondary p-2">Bug</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
-										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-check-circle text-green mx-xxl-2 mx-md-0 mx-sm-0 "></i></div>
-											<div class="col-11">
-												<div class=" h3">Make a screencast</div>
-												<div class="">
-													<div class="">#12 created in 2022-10-08</div>
-													<div class="" title="It is not always necessary, but many times a
-														short screencast (or at least a screenshot) says more than a
-														thousand words. While working on MacOS you can use QuickTime
-														Player for the purpose but there are plenty of tools available for
-														other operating systems as well.">It is not always necessary, but
-														many times a short scre...</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary p-2">High</span>
-													<span class="btn btn-secondary p-2">Bug</span>
-												</div>
-											</div>
-										</div>
-									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 border-bottom-0 rounded-bottom shadow-none">
-										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-check-circle text-green mx-xxl-2 mx-md-0 mx-sm-0 "></i></div>
-											<div class="col-11">
-												<div class="h3">Provide contact information</div>
-												<div class="">
-													<div class="">#13 created in 2022-10-08</div>
-													<div class="" title="of the person that reported the bug. This will
-														not always be possible, but in some cases it might be advantageous
-														and most effective if a developer can have a chat with a person
-														that actually experienced the bug, especially if the steps to
-														reproduce a problem are not deterministic.">of the person that
-														reported the bug. This will not alwa...</div>
 												</div>
 												<div class="mb-3 mt-2">
 													<span class="btn btn-primary p-2">High</span>
@@ -407,35 +269,64 @@
 		<!-- END #app -->
 
 		<!-- TASK MODAL -->
-			<div class="modal fade" id="modal-task">
-				<div class="modal-dialog">
+			<div class="modal fade" id="modal-task" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">Contact Us</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-						</div>
-						<div class="modal-body">
-							<form>
-								<div class="mb-3">
-									<label class="form-label ">Name</label>
-									<input type="text" class="form-control">
-								</div>
-								<div class="mb-3">
-									<label class="form-label ">Email</label>
-									<input type="email" class="form-control">
-								</div>
-								<div class="mb-3">
-									<label class="form-label ">Type ypur message here</label>
-									<textarea class="form-control"></textarea>
-								</div>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary">Submit</button>
-							<button type="submit" class="btn btn-danger">Cancel</button>
-						</div>
+					  <div class="modal-header">
+						<div class="h1">Add Task</div>
+					  </div>
+					  <div class="modal-body">
+						<!--begin form-->
+						<form action="" class="form">
+							<div class="form-group">
+								<label for="title">Title</label>
+								<input type="text" class="form-control form-control-lg" name="titlee" id="title">
+							</div>
+							<label  class="mt-2">Type</label> <br>
+							<div class="form-check">
+								<input type="radio" name="type" id="feature"  >
+								<label for="feature" >feature&emsp;</label> 
+								<input type="radio" name="type" id="bug"   >
+								<label for="bug">bug</label>
+							</div>
+							<div class="mt-2 form-group">
+								<label for="priority"   >Priority</label>
+								<select name="priority"  class="form-select form-select-lg " id="priority">
+									<option selected>please select</option>
+									<option value="low">low</option>
+									<option value="high">high</option>
+									<option value="meduim">meduim </option>
+									
+								</select>
+							</div>
+							<div class="mt-2 form-group">
+								<label for="status"  >Status</label>
+								<select name="status"  class="form-select form-select-lg " id="status">
+									<option selected>please select</option>
+									<option>To Do</option>
+									<option>Progress</option>
+									<option>Done </option>
+									
+								</select>
+							</div>	
+							<div class="mt-2 form-group">
+								<label for="date"  >Date</label>
+								<input type="date" class=" form-control form-control-lg" name="date" id="date">
+							</div>	
+							<div class="mt-2 form-group">
+								<label for="Description"   >Description</label> <br>
+								<textarea rows="5" class="form-control form-control-lg"  id="Description"></textarea>
+							</div>	
+								
+ 						</form>
+						<!--end form-->
+					  </div>
+					  <div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+						<button type="button" class="btn  backgound-btn text-white">Save</button>
+					  </div>
 					</div>
-				</div>
+				  </div>
 			</div>
 		
 

@@ -14,3 +14,12 @@
 .float-btn{
     z-index: 2;
 }
+label{
+    font-size: 20px;
+}
+.backgound-btn{
+    background-color: #9D84BF;
+ }
+.cart-backgound{
+    background-color: #5A278C;
+}
