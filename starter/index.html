@@ -18,7 +18,7 @@
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 		<!-- ================== END core-css ================== -->
 	</head>
-	<body>
+	<body onload="loadTables()">
 
 		<!-- BEGIN #app -->
 		
@@ -58,91 +58,7 @@
 								</div>
 								<div class="" id="to-do-tasks">
 									<!-- TO DO TASKS HERE -->
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
-										<div class="row mt-2">
-											<div class="col-1 ">
-												<i class=" bi bi-exclamation-octagon text-red h1"></i>
-											</div>
-											<div class="col-11 ">
-												<div class="h3">Keep all the updated requirements in one place</div>
-												<div class="">
-													<div class="">#1 created in 2022-10-08</div>
-													<div class="" title="There is hardly anything more frustrating than
-														having to look for current requirements in tens of comments under
-														the actual description or having to decide which commenter is
-														actually authorized to change the requirements. The goal here is
-														to keep all the up-to-date requirements and details in the
-														main/primary description of a task. Even though the information in
-														comments may affect initial criteria, just update this primary
-														description accordingly.">There is hardly anything more
-														frustrating than having t...</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary ">High</span>
-													<span class="btn btn-secondary ">Feature</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
-										<div class="row mt-2 ">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-exclamation-octagon text-red h1"></i>
-											</div>
-
-											<div class="col-11">
-												<div class="h3 ">Consider creating an acceptance criteria list</div>
-												<div class="">
-													<div class="">#2 created in 2022-10-08</div>
-													<div class="" title="Descriptive requirements are very helpful when
-														it comes to understanding the context of a problem, yet finally it
-														is good to precisely specify what is expected. Thus the developer
-														will not have to look for the actual requirements in a long,
-														descriptive text but he will be able to easily get to the essence.
-														One might find that sometimes — when acceptance criteria are well
-														defined — there is little or no need for any additional
-														information. Example:
-														a) User navigates to “/accounts” and clicks on red download CSV
-														button
-														b) Popup appears with two buttons: “This year” and “Last year”
-														c) If user clicked on “Last year” download is initiated
-														d) CSV downloaded includes following columns…">Descriptive
-														requirements are very helpful when it comes...</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary ">High</span>
-													<span class="btn btn-secondary ">Feature</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none border-bottom-0">
-										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-exclamation-octagon text-red h1"></i></div>
-											<div class="col-11">
-												<div class="h3">Provide examples, credentials, etc</div>
-												<div class="">
-													<div class="">#3 created in 2022-10-08</div>
-													<div class="" title="If the expectation is to process or generate
-														some file — attach an example of such a file. If the goal is to
-														integrate what is being developed with some service, ensure your
-														devs have access to this service and its documentation. This list
-														could go on and on — the bottom line is — if there is something
-														that our developer might make use of, try to foresee it and
-														provide them with (access to) it.">If the expectation is to
-														process or generate some file ...</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary p-2">High</span>
-													<span class="btn btn-secondary p-2">Feature</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
+									 
 								</div>
 							</div>
 						</div>
@@ -154,46 +70,7 @@
 								</div>
 								<div class="" id="in-progress-tasks">
 									<!-- IN PROGRESS TASKS HERE -->
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
-										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-arrow-clockwise text-green h1"></i></div>
-											<div class="col-11">
-												<div class="h3">Describe steps to reproduce an issue</div>
-												<div class="">
-													<div class="">#6 created in 2022-10-08</div>
-													<div class="" title="including as many details as possible.">including
-														as many details as possible.</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary p-2">High</span>
-													<span class="btn btn-secondary p-2">Bug</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none border-bottom-0">
-										<div class="row mt-2">
-											<div class="col-1 h1 ">
-												<i class=" bi bi-arrow-clockwise text-green h1"></i></div>
-											<div class="col-11">
-												<div class="h3">Provide access</div>
-												<div class="">
-													<div class="">#7 created in 2022-10-08</div>
-													<div class="" title="to the affected account and services if
-														possible. It might be hard to reproduce the exact environment on a
-														local machine.">to the affected account and services if possible.
-														It mi...</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary p-2">High</span>
-													<span class="btn btn-secondary p-2">Bug</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
+									 
 									
 								</div>
 							</div>
@@ -207,49 +84,7 @@
 								</div>
 								<div class=" " id="done-tasks">
 									<!-- DONE TASKS HERE -->
-									<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
-										<div class="row mt-2">
-											<div class="col-1 ">
-												<i class=" bi bi-check-circle text-green h1"></i></div>
-											<div class="col-11">
-												<div class="h3">Provide access to logs</div>
-												<div class="">
-													<div class="">#10 created in 2022-10-08</div>
-													<div class="" title="as they can be helpful in reproducing the
-														steps that caused the problem in the first place.">as they can be
-														helpful in reproducing the steps that ca...</div>
-												</div>
-												<div class="text-start">
-													<span class="btn btn-primary p-2">High</span>
-													<span class="btn btn-secondary p-2">Bug</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
-									<button class="col-12 text-start btn-light text-black border-end-0 border-bottom-0 shadow-none">
-										<div class="row mt-2">
-											<div class="col-1 ">
-												<i class=" bi bi-check-circle text-green  h1"></i></div>
-											<div class="col-11">
-												<div class="h3">Provide access to the affected server or database
-													dump</div>
-												<div class="">
-													<div class="">#11 created in 2022-10-08</div>
-													<div class="" title="If it is possible and when it does not violate
-														security policies, it is usually helpful for the developer to
-														access the original data that might have played a role in the
-														problem.">If it is possible and when it does not violate
-														security...</div>
-												</div>
-												<div class="mb-3 mt-2">
-													<span class="btn btn-primary p-2">High</span>
-													<span class="btn btn-secondary p-2">Bug</span>
-												</div>
-											</div>
-										</div>
-
-									</button>
+									 
 								</div>
 							</div>
 						</div>
@@ -272,8 +107,8 @@
 			<div class="modal fade" id="modal-task" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
-					  <div class="modal-header">
-						<div class="h1">Add Task</div>
+					  <div class="modal-header ">
+						<h2 >Add Task</h2>
 					  </div>
 					  <div class="modal-body">
 						<!--begin form-->
@@ -322,8 +157,8 @@
 						<!--end form-->
 					  </div>
 					  <div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-						<button type="button" class="btn  backgound-btn text-white">Save</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" >cancel</button>
+						<button type="button" class="btn  backgound-btn text-white" id="saveTask" onclick="">Save</button>
 					  </div>
 					</div>
 				  </div>
