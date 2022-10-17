@@ -18,7 +18,7 @@
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 		<!-- ================== END core-css ================== -->
 	</head>
-	<body onload="loadTables()">
+	<body >
 
 		<!-- BEGIN #app -->
 		
@@ -115,13 +115,13 @@
 						<form action="" class="form">
 							<div class="form-group">
 								<label for="title">Title</label>
-								<input type="text" class="form-control form-control-lg" name="titlee" id="title">
+								<input type="text" class="form-control form-control-lg"  id="title">
 							</div>
 							<label  class="mt-2">Type</label> <br>
 							<div class="form-check">
-								<input type="radio" name="type" id="feature"  >
+								<input type="radio" value="feature" name="type" id="feature"  >
 								<label for="feature" >feature&emsp;</label> 
-								<input type="radio" name="type" id="bug"   >
+								<input type="radio" value="bug" name="type" id="bug"   >
 								<label for="bug">bug</label>
 							</div>
 							<div class="mt-2 form-group">
@@ -157,8 +157,8 @@
 						<!--end form-->
 					  </div>
 					  <div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal" >cancel</button>
-						<button type="button" class="btn  backgound-btn text-white" id="saveTask" onclick="">Save</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >cancel</button>
+						<button type="button" class="btn  backgound-btn text-white" id="saveTask" onclick="saveTask()">Save</button>
 					  </div>
 					</div>
 				  </div>
@@ -169,7 +169,11 @@
 		
 		<script src="assets/js/vendor.min.js"></script>
 		<script src="assets/js/app.min.js"></script>
-		<script src="assets/js/js.js"></script></body>
+		<script src="assets/js/data.js"></script>
+		<script  src="assets/js/js.js"></script>
+	
+
+	</body>
 		<!-- ================== END core-js ================== -->
 	</body>
 </html>
