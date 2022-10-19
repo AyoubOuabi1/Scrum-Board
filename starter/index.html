@@ -113,20 +113,23 @@
 					  <div class="modal-body">
 						<!--begin form-->
 						<form action="" class="form">
+							<div class="col-12 bg-red text-white h2 p-2 rounded-3 d-none">
+								please remplire tous les champs
+							</div>
 							<div class="form-group">
 								<label for="title">Title</label>
-								<input type="text" class="form-control form-control-lg"  id="title">
+								<input type="text" class="form-control form-control-lg"  id="title" required>
 							</div>
 							<label  class="mt-2">Type</label> <br>
 							<div class="form-check">
-								<input type="radio" value="feature" name="type" id="feature"  >
+								<input type="radio" value="feature" name="type" id="feature" required >
 								<label for="feature" >feature&emsp;</label> 
-								<input type="radio" value="bug" name="type" id="bug"   >
+								<input type="radio" value="bug" name="type" id="bug"   required>
 								<label for="bug">bug</label>
 							</div>
 							<div class="mt-2 form-group">
 								<label for="priority"   >Priority</label>
-								<select name="priority"  class="form-select form-select-lg " id="priority">
+								<select name="priority"  class="form-select form-select-lg " id="priority" required>
 									<option selected>please select</option>
 									<option value="low">low</option>
 									<option value="high">high</option>
@@ -136,21 +139,21 @@
 							</div>
 							<div class="mt-2 form-group">
 								<label for="status"  >Status</label>
-								<select name="status"  class="form-select form-select-lg " id="status">
+								<select name="status"  class="form-select form-select-lg " id="status" required>
 									<option selected>please select</option>
-									<option>To Do</option>
-									<option>Progress</option>
-									<option>Done </option>
+									<option value="To Do">To Do</option>
+									<option value="In Progress">Progress</option>
+									<option value="Done">Done </option>
 									
 								</select>
 							</div>	
 							<div class="mt-2 form-group">
 								<label for="date"  >Date</label>
-								<input type="date" class=" form-control form-control-lg" name="date" id="date">
+								<input type="date" class=" form-control form-control-lg" name="date" id="date" required>
 							</div>	
 							<div class="mt-2 form-group">
 								<label for="Description"   >Description</label> <br>
-								<textarea rows="5" class="form-control form-control-lg"  id="Description"></textarea>
+								<textarea rows="5" class="form-control form-control-lg"  id="Description" required></textarea>
 							</div>	
 								
  						</form>
@@ -158,20 +161,22 @@
 					  </div>
 					  <div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >cancel</button>
+						  <button type="button" class="btn  btn-danger text-white " id="deleteTaskAfterCrud" >Delete</button>
+						  <button type="button" class="btn  backgound-btn text-white" id="updateTaskCrud" >Update</button>
 						<button type="button" class="btn  backgound-btn text-white" id="saveTask" onclick="saveTask()">Save</button>
 					  </div>
 					</div>
 				  </div>
 			</div>
-		
 
-		<!-- ================== BEGIN core-js ================== -->
+		<!-- TASK MODAL DELETE AND UPDATE-->
+ 		<!-- ================== BEGIN core-js ================== -->
 		
 		<script src="assets/js/vendor.min.js"></script>
 		<script src="assets/js/app.min.js"></script>
-		<script src="assets/js/data.js"></script>
+ 		<script src="assets/js/data.js"></script>
 		<script  src="assets/js/js.js"></script>
-	
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	</body>
 		<!-- ================== END core-js ================== -->

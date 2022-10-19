@@ -9,16 +9,20 @@ let priority =document.getElementById("priority");
 let taskStatus=document.getElementById("status")
 let date =document.getElementById("date");
 let description=document.getElementById("Description");
-let modalTask=document.getElementById("modal-task");
+let clickedButton=document.getElementsByName("clickedButton");
+let saveTaskBtn=document.getElementsByName("saveTask");
+let updateTaskbtn=document.getElementById("updateTaskCrud");
 
-loadTables();
-function loadTables() {
+let deleteTaskBtn=document.getElementsByName("deleteTaskAfterCrud");
+
+loadTasks();
+function loadTasks() {
     var c;
   for (var i = 0; i < tasksTables.length; i++) {
     c=i+1;
         
-    if (tasksTables[i].status == "To Do") {
-      taskSection.innerHTML+=`<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
+    if (tasksTables[i].status === "To Do") {
+      taskSection.innerHTML+=`<button name="clickedButton"   class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="updateTask(${i})">
       <div class="row mt-2">
         <div class="col-1 ">
           <i class=" bi bi-exclamation-octagon text-red h1"></i>
@@ -27,7 +31,7 @@ function loadTables() {
           <div class="h3">${tasksTables[i].title}</div>
           <div class="">
             <div class="">#${c} created in ${tasksTables[i].date}</div>
-            <div class="" title="${tasksTables[i].description}">${tasksTables[i].description.substring(0,70)}</div>
+            <div class="" title="${tasksTables[i].description}">${tasksTables[i].description.substring(0,70)+"..."}</div>
           </div>
           <div class="mb-3 mt-2">
             <span class="btn btn-primary ">${tasksTables[i].priority}</span>
@@ -37,8 +41,8 @@ function loadTables() {
       </div>
 
     </button>`
-    } else if (tasksTables[i].status == "In Progress") {
-      progressSection.innerHTML+=`<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
+    } else if (tasksTables[i].status === "In Progress") {
+      progressSection.innerHTML+=`<button name="clickedButton"  class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="updateTask(${i})">
       <div class="row mt-2">
         <div class="col-1 ">
           <i class=" bi bi-arrow-clockwise text-green h1"></i>
@@ -47,7 +51,7 @@ function loadTables() {
           <div class="h3">${tasksTables[i].title}</div>
           <div class="">
             <div class="">#${c} created in ${tasksTables[i].date}</div>
-            <div class="" title="${tasksTables[i].description}">${tasksTables[i].description.substring(0,70)}</div>
+            <div class="" title="${tasksTables[i].description}">${tasksTables[i].description.substring(0,70)+"..."}</div>
           </div>
           <div class="mb-3 mt-2">
             <span class="btn btn-primary ">${tasksTables[i].priority}</span>
@@ -57,8 +61,8 @@ function loadTables() {
       </div>
 
     </button>`
-    } else if (tasksTables[i].status == "Done")  {
-      doneSection.innerHTML+=`<button class="col-12 text-start btn-light text-black border-end-0 shadow-none">
+    } else if (tasksTables[i].status === "Done")  {
+      doneSection.innerHTML+=`<button name="clickedButton"   class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="updateTask(${i})">
       <div class="row mt-2">
         <div class="col-1 ">
           <i class=" bi bi-check-circle text-green h1"></i>
@@ -67,7 +71,7 @@ function loadTables() {
           <div class="h3">${tasksTables[i].title}</div>
           <div class="">
             <div class="">#${c} created in ${tasksTables[i].date}</div>
-            <div class="" title="${tasksTables[i].description}">${tasksTables[i].description.substring(0,70)}</div>
+            <div class="" title="${tasksTables[i].description}">${tasksTables[i].description.substring(0,70)+"..."}</div>
           </div>
           <div class="mb-3 mt-2">
             <span class="btn btn-primary ">${tasksTables[i].priority}</span>
@@ -79,100 +83,119 @@ function loadTables() {
     </button>`
       
     }
+
   }
 }
-/**
- * In this file app.js you will find all CRUD functions name.
- * 
- */
 
- function createTask() {
+function createTask() {
     // initialiser task form
 
     // Afficher le boutton save
     
     // Ouvrir modal form
 }
-
+function reloadTasks(){
+  taskSection.innerHTML='';
+  progressSection.innerHTML='';
+  doneSection.innerHTML='';
+  loadTasks();
+    Swal.fire(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+    )
+    $('#modal-task').modal('hide');
+    title.value= " ";
+    type.checked=false;
+    priority.value=" ";
+    taskStatus.value=""
+    date.value=" ";
+    description.value=" ";
+    console.log(tasksTables.length);
+}
 function saveTask() {
-    // Recuperer task attributes a partir les champs input
 
-    // Créez task object
-
-    // Ajoutez object au Array
-
-    // refresh tasks
-    taskSection.innerHTML='';
-    progressSection.innerHTML='';
-    doneSection.innerHTML='';
-    let typeChecked;
-    for(let i=0;i<type.length;i++){
-      if(type[i].checked){
-        typeChecked=type[i].value;
-      }
-    }
+    
     let taskObject={
       'title'         :   title.value,
-      'type'          :   typeChecked,
+      'type'          :   getSelectedRadio(),
       'priority'      :   priority.value,
       'status'        :   taskStatus.value,
       'date'          :   date.value,
       'description'   :   description.value,
   
     }
-    tasksTables[tasksTables.length]=taskObject;
      
-    loadTables();
+    tasksTables[tasksTables.length]=taskObject;
+
+    reloadTasks();
+
+    
 
     
 }
-
 function editTask(index) {
-    // Initialisez task form
+    // let taskObject={
+    //     'title'         :   title.value,
+    //     'type'          :   getSelectedRadio(),
+    //     'priority'      :   priority.value,
+    //     'status'        :   taskStatus.value,
+    //     'date'          :   date.value,
+    //     'description'   :   description.value,
+    //
+    // }
+     tasksTables[index].title=title.value;
+     tasksTables[index].type=getSelectedRadio();
+     tasksTables[index].priority=priority.value;
+     tasksTables[index].status=taskStatus.value;
+     tasksTables[index].date=date.value;
+     tasksTables[index].description=description.values;
+    //tasksTables[index]=taskObject;
 
-    // Affichez updates
 
-    // Delete Button
-
-    // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
-
-    // Definir FORM INPUTS
-
-    // Ouvrir Modal form
+     
 }
 
-function updateTask() {
-    // GET TASK ATTRIBUTES FROM INPUTS
+function updateTask(i) {
+    //deleteTask.classList.remove('d-none')
+    $('#modal-task').modal('show');
 
-    // Créez task object
+    initTaskForm(i);
+    updateTaskbtn.addEventListener('click', function() {
+        editTask(i);
 
-    // Remplacer ancienne task par nouvelle task
 
-    // Fermer Modal form
+        reloadTasks();
+    })
 
-    // Refresh tasks
-    
+
+
+    //reloadTasks();
+
 }
 
 function deleteTask() {
-    // Get index of task in the array
 
-    // Remove task from array by index splice function
-
-    // close modal form
-
-    // refresh tasks
 }
 
-function initTaskForm() {
-    // Clear task form from data
-
-    // Hide all action buttons
+function initTaskForm(index) {
+    title.value=tasksTables[index].title;
+    type.value=tasksTables[index].type;
+    priority.value=tasksTables[index].priority;
+    date.value=tasksTables[index].date;
+    description.values=tasksTables[index].description;
 }
 
-function reloadTasks() {
-    // Remove tasks elements
+function removeCheckedRadio(){
 
-    // Set Task count
+}
+function getSelectedRadio(){
+  let typeChecked;
+  for(let i=0;i<type.length;i++){
+    if(type[i].checked){
+      typeChecked=type[i].value;
+    }
+  }
+  return typeChecked;
 }
 
