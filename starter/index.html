@@ -24,7 +24,7 @@
 		
 		<div id="app" class="app-without-sidebar">
 			<!--Add task float button-->
-			<div type="button" data-bs-toggle="modal" data-bs-target="#modal-task" class="float-end me-50px mb-50px position-fixed d-md-none d-inline bottom-0 mb-50px end-0 me-50px float-btn">
+			<div type="button" data-bs-toggle="modal" onclick="createTask()" class="float-end me-50px mb-50px position-fixed d-md-none d-inline bottom-0 mb-50px end-0 me-50px float-btn">
 				<button class="btn backgound-btn text-white circlr "><i class="bi bi-plus h1"></i> </button>
 			</div>
 			<!-- BEGIN #content -->
@@ -123,7 +123,7 @@
 							<label  class="mt-2">Type</label> <br>
 							<div class="form-check">
 								<input type="radio" value="feature" name="type" id="feature" required >
-								<label for="feature" >feature&emsp;</label> 
+								<label for="feature" >feature&emsp; </label>
 								<input type="radio" value="bug" name="type" id="bug"   required>
 								<label for="bug">bug</label>
 							</div>
@@ -131,9 +131,9 @@
 								<label for="priority"   >Priority</label>
 								<select name="priority"  class="form-select form-select-lg " id="priority" required>
 									<option selected>please select</option>
-									<option value="low">low</option>
-									<option value="high">high</option>
-									<option value="meduim">meduim </option>
+									<option value="Low">low</option>
+									<option value="Meduim">Meduim</option>
+									<option value="High">High </option>
 									
 								</select>
 							</div>
@@ -159,10 +159,9 @@
  						</form>
 						<!--end form-->
 					  </div>
-					  <div class="modal-footer">
+					  <div id="modelFooter"  class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >cancel</button>
-						  <button type="button" class="btn  btn-danger text-white " id="deleteTaskAfterCrud" >Delete</button>
-						  <button type="button" class="btn  backgound-btn text-white" id="updateTaskCrud" >Update</button>
+
 						<button type="button" class="btn  backgound-btn text-white" id="saveTask" onclick="saveTask()">Save</button>
 					  </div>
 					</div>
