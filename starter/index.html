@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
+		<meta charset = "UTF-8" />
 		<title>YouCode | Scrum Board</title>
 		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,
 			user-scalable=no" name="viewport" />
@@ -43,7 +43,7 @@
 					</div>
 					<!--Add task button-->
 					<div class="col-xxl-6 d-md-inline col-md-6 d-none  text-end">
-						<button type="button" class="btn text-white backgound-btn rounded-pill"  data-bs-toggle="modal" data-bs-target="#modal-task"><i class="bi bi-plus h5" ></i><a>&emsp;Add Task&emsp;</a></button>
+						<button type="button" class="btn text-white backgound-btn rounded-pill"  data-bs-toggle="modal" onclick="createTask()"><i class="bi bi-plus h5" ></i><a>&emsp;Add Task&emsp;</a></button>
 					</div>
 				</div>
 				
@@ -53,8 +53,8 @@
 						<!--cart to do-->
 						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4"> 
 							<div>
-								<div class="col-12 rounded-top cart-backgound text-white p-3">
-									<h4 class="">To do (<span id="to-do-tasks-count">5</span>)</h4>
+								<div class="col-12 rounded-top cart-backgound text-white p-3" id="todoTitle">
+
 								</div>
 								<div class="" id="to-do-tasks">
 									<!-- TO DO TASKS HERE -->
@@ -65,8 +65,8 @@
 						<!--cart progress-->
 						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4">
 							<div class="">
-								<div class="col-12 rounded-top cart-backgound text-white p-3">
-									<h4 class="">In Progress (<span id="in-progress-tasks-count">4</span>)</h4>
+								<div class="col-12 rounded-top cart-backgound text-white p-3" id="progressTitle">
+
 								</div>
 								<div class="" id="in-progress-tasks">
 									<!-- IN PROGRESS TASKS HERE -->
@@ -78,8 +78,7 @@
 						<!--cart done-->
 						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4 ">
 							<div class="">
-								<div class="col-12 rounded-top cart-backgound text-white p-3">
-									<h4 class="">Done (<span id="done-tasks-count">4</span>)</h4>
+								<div class="col-12 rounded-top cart-backgound text-white p-3" id="doneTitle">
 
 								</div>
 								<div class=" " id="done-tasks">
@@ -113,23 +112,23 @@
 					  <div class="modal-body">
 						<!--begin form-->
 						<form action="" class="form">
-							<div class="col-12 bg-red text-white h2 p-2 rounded-3 d-none">
+							<div class="col-12 bg-red text-white h2 p-2 rounded-3 d-none " id="checkEmpty">
 								please remplire tous les champs
 							</div>
 							<div class="form-group">
 								<label for="title">Title</label>
-								<input type="text" class="form-control form-control-lg"  id="title" required>
+								<input type="text" class="form-control form-control-lg check"  id="title" required>
 							</div>
 							<label  class="mt-2">Type</label> <br>
 							<div class="form-check">
-								<input type="radio" value="feature" name="type" id="feature" required >
+								<input type="radio" value="feature" class="check" name="type" id="feature" required >
 								<label for="feature" >feature&emsp; </label>
-								<input type="radio" value="bug" name="type" id="bug"   required>
+								<input type="radio" value="bug" class="check" name="type" id="bug"   required>
 								<label for="bug">bug</label>
 							</div>
 							<div class="mt-2 form-group">
 								<label for="priority"   >Priority</label>
-								<select name="priority"  class="form-select form-select-lg " id="priority" required>
+								<select name="priority"  class="form-select form-select-lg check" id="priority" required>
 									<option selected>please select</option>
 									<option value="Low">low</option>
 									<option value="Meduim">Meduim</option>
@@ -139,7 +138,7 @@
 							</div>
 							<div class="mt-2 form-group">
 								<label for="status"  >Status</label>
-								<select name="status"  class="form-select form-select-lg " id="status" required>
+								<select name="status"  class="form-select form-select-lg check" id="status" required>
 									<option selected>please select</option>
 									<option value="To Do">To Do</option>
 									<option value="In Progress">Progress</option>
@@ -149,20 +148,18 @@
 							</div>	
 							<div class="mt-2 form-group">
 								<label for="date"  >Date</label>
-								<input type="date" class=" form-control form-control-lg" name="date" id="date" required>
+								<input type="date" class=" form-control form-control-lg check" name="date" id="date" required>
 							</div>	
 							<div class="mt-2 form-group">
 								<label for="Description"   >Description</label> <br>
-								<textarea rows="5" class="form-control form-control-lg"  id="Description" required></textarea>
+								<textarea rows="5" class="form-control form-control-lg check"  id="Description" required></textarea>
 							</div>	
 								
  						</form>
 						<!--end form-->
 					  </div>
 					  <div id="modelFooter"  class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >cancel</button>
 
-						<button type="button" class="btn  backgound-btn text-white" id="saveTask" onclick="saveTask()">Save</button>
 					  </div>
 					</div>
 				  </div>
