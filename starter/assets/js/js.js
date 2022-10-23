@@ -14,13 +14,13 @@ let description = document.getElementById("Description");
 loadTasks();
 
 function loadTasks() {
-    var c,t=0,p=0,d=0;
+    var c, t = 0, p = 0, d = 0;
     for (var i = 0; i < tasksTables.length; i++) {
         c = i + 1;
-        t++;
-        if (tasksTables[i].status === "To Do") {
 
-            taskSection.innerHTML += `<button name="clickedButton"   class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="updateTask(${i})">
+        if (tasksTables[i].status === "To Do") {
+            t++;
+            taskSection.innerHTML += `<button name="clickedButton" ondrag="dragTask(${i})" draggable="true"  class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="update(${i})">
       <div class="row mt-2">
         <div class="col-1 ">
           <i class=" bi bi-exclamation-octagon text-red h1"></i>
@@ -42,7 +42,7 @@ function loadTasks() {
             $('#todoTitle').html(`<h4 class="">To do (<span >${t}</span>)</h4>`)
         } else if (tasksTables[i].status === "In Progress") {
             p++;
-            progressSection.innerHTML += `<button name="clickedButton"  class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="updateTask(${i})">
+            progressSection.innerHTML += `<button name="clickedButton" ondrag="dragTask(${i})" draggable="true" class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="update(${i})">
       <div class="row mt-2">
         <div class="col-1 ">
           <i class=" bi bi-arrow-clockwise text-green h1"></i>
@@ -64,7 +64,7 @@ function loadTasks() {
             $('#progressTitle').html(`<h4 class="">In Progress(<span >${p}</span>)</h4>`)
         } else if (tasksTables[i].status === "Done") {
             d++;
-            doneSection.innerHTML += `<button name="clickedButton"   class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="updateTask(${i})">
+            doneSection.innerHTML += `<button name="clickedButton"  ondrag="dragTask(${i})" draggable="true"  class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="update(${i})">
       <div class="row mt-2">
         <div class="col-1 ">
           <i class=" bi bi-check-circle text-green h1"></i>
@@ -90,8 +90,7 @@ function loadTasks() {
 }
 
 function createTask() {
-    document.querySelector('#modelFooter').innerHTML = " "
-    $('#title').val(' ')
+    $('#tasktitle').html("Add Task")
     document.getElementById("feature").checked = false;
     document.getElementById("bug").checked = false;
     $('#priority').prop('selectedIndex', 0);
@@ -108,12 +107,7 @@ function reloadTasks() {
     progressSection.innerHTML = '';
     doneSection.innerHTML = '';
     loadTasks();
-    title.value = " ";
-    type.checked = false;
-    priority.value = " ";
-    taskStatus.value = ""
-    date.value = " ";
-    description.value = " ";
+
 }
 
 function saveTask() {
@@ -139,7 +133,7 @@ function saveTask() {
 
 }
 
-function editTask(index) {
+function editeTask(i) {
     let taskObject = {
         'title': title.value,
         'type': getSelectedRadio(),
@@ -149,8 +143,8 @@ function editTask(index) {
         'description': description.value,
 
     }
-    tasksTables[index] = taskObject;
-    reloadTasks()
+    tasksTables[i] = taskObject;
+    reloadTasks();
     $('#modal-task').modal('hide');
     Swal.fire(
         'Task Updated!',
@@ -159,15 +153,12 @@ function editTask(index) {
     )
 }
 
-function updateTask(i) {
-    //deleteTask.classList.remove('d-none')
+function update(i) {
     $('#modal-task').modal('show');
     $('#modelFooter').html(`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >cancel</button>
     <button type="button" class="btn  btn-danger text-white " id="deleteTaskAfterCrud" onclick="deleteTask(${i})">Delete</button>
-    <button type="button" class="btn  backgound-btn text-white" id="updateTaskCrud" onclick="editTask(${i})">Update</button>`);
+    <button type="button" class="btn  backgound-btn text-white" id="updateTaskCrud" onclick="editeTask(${i})">Update</button>`);
     initTaskForm(i);
-
-
 }
 
 function deleteTask(index) {
@@ -219,5 +210,26 @@ function getSelectedRadio() {
         }
     }
     return typeChecked;
+}
+let dropIndex;
+function dragTask(index) {
+    dropIndex = index;
+}
+function allowDrop(element){
+    element.preventDefault();
+}
+function changeStatusToDo() {
+    tasksTables[dropIndex].status ="TO DO";
+    reloadTasks()
+}
+function changeStatusProgress() {
+    tasksTables[dropIndex].status ="In Progress";
+    reloadTasks()
+
+}
+function changeStatusDone() {
+    tasksTables[dropIndex].status ="Done";
+    reloadTasks()
+
 }
 

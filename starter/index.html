@@ -1,180 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset = "UTF-8" />
-		<title>YouCode | Scrum Board</title>
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,
-			user-scalable=no" name="viewport" />
-		<meta content="" name="description" />
-		<meta content="" name="author" />
+<head>
+    <meta charset="UTF-8"/>
+    <title>YouCode | Scrum Board</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,
+			user-scalable=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
 
-		<!-- ================== BEGIN core-css ================== -->
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-			rel="stylesheet" />
-		<link href="assets/css/vendor.min.css" rel="stylesheet" />
-		<link href="assets/css/default/app.min.css" rel="stylesheet" />
-		<link href="assets/css/style.css" rel="stylesheet" />
-		<link rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-		<!-- ================== END core-css ================== -->
-	</head>
-	<body >
+    <!-- ================== BEGIN core-css ================== -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+          rel="stylesheet" />
+    <link href="assets/css/vendor.min.css" rel="stylesheet" />
+    <link href="assets/css/default/app.min.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- ================== END core-css ================== -->
+</head>
+<body>
 
-		<!-- BEGIN #app -->
-		
-		<div id="app" class="app-without-sidebar">
-			<!--Add task float button-->
-			<div type="button" data-bs-toggle="modal" onclick="createTask()" class="float-end me-50px mb-50px position-fixed d-md-none d-inline bottom-0 mb-50px end-0 me-50px float-btn">
-				<button class="btn backgound-btn text-white circlr "><i class="bi bi-plus h1"></i> </button>
-			</div>
-			<!-- BEGIN #content -->
-			<div id="content" class="app-content main-style">
-				<div class="row">
-					<div class="col-xxl-6 col-md-6">
-						<ol class="breadcrumb h4">
-							<li class="breadcrumb-item "><a href="javascript:;">Home</a></li>
-							<li class="breadcrumb-item active">Scrum Board </li>
-						</ol>
-						<!-- BEGIN page-header -->
-						<h1 class="page-header ">
-							Scrum Board
-						</h1>
-						<!-- END page-header -->
-					</div>
-					<!--Add task button-->
-					<div class="col-xxl-6 d-md-inline col-md-6 d-none  text-end">
-						<button type="button" class="btn text-white backgound-btn rounded-pill"  data-bs-toggle="modal" onclick="createTask()"><i class="bi bi-plus h5" ></i><a>&emsp;Add Task&emsp;</a></button>
-					</div>
-				</div>
-				
-				<!--carts container-->
-				<div class="container-fluid">
-					<div class="row">
-						<!--cart to do-->
-						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4"> 
-							<div>
-								<div class="col-12 rounded-top cart-backgound text-white p-3" id="todoTitle">
+<!-- BEGIN #app -->
 
-								</div>
-								<div class="" id="to-do-tasks">
-									<!-- TO DO TASKS HERE -->
-									 
-								</div>
-							</div>
-						</div>
-						<!--cart progress-->
-						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4">
-							<div class="">
-								<div class="col-12 rounded-top cart-backgound text-white p-3" id="progressTitle">
+<div class="app-without-sidebar" id="app">
+    <!--Add task float button-->
+    <div class="float-end me-50px mb-50px position-fixed d-md-none d-inline bottom-0 mb-50px end-0 me-50px float-btn" data-bs-toggle="modal" onclick="createTask()"
+         type="button">
+        <button class="btn backgound-btn text-white circlr "><i class="bi bi-plus h1"></i></button>
+    </div>
+    <!-- BEGIN #content -->
+    <div class="app-content main-style" id="content">
+        <div class="row">
+            <div class="col-xxl-6 col-md-6">
+                <ol class="breadcrumb h4">
+                    <li class="breadcrumb-item "><a href="javascript:">Home</a></li>
+                    <li class="breadcrumb-item active">Scrum Board</li>
+                </ol>
+                <!-- BEGIN page-header -->
+                <h1 class="page-header ">
+                    Scrum Board
+                </h1>
+                <!-- END page-header -->
+            </div>
+            <!--Add task button-->
+            <div class="col-xxl-6 d-md-inline col-md-6 d-none  text-end">
+                <button class="btn text-white backgound-btn rounded-pill" data-bs-toggle="modal" onclick="createTask()"
+                        type="button"><i class="bi bi-plus h5"></i><a>&emsp;Add Task&emsp;</a></button>
+            </div>
+        </div>
 
-								</div>
-								<div class="" id="in-progress-tasks">
-									<!-- IN PROGRESS TASKS HERE -->
-									 
-									
-								</div>
-							</div>
-						</div>
-						<!--cart done-->
-						<div class="col-xxl-4 col-md-6 col-sm-12 mb-4 ">
-							<div class="">
-								<div class="col-12 rounded-top cart-backgound text-white p-3" id="doneTitle">
+        <!--carts container-->
+        <div class="container-fluid">
+            <div class="row">
+                <!--cart to do-->
+                <div class="col-xxl-4 col-md-6 col-sm-12 mb-4" ondragover="allowDrop(event)" ondrop="changeStatusToDo()">
+                    <div>
+                        <div class="col-12 rounded-top cart-background text-white p-3" id="todoTitle">
 
-								</div>
-								<div class=" " id="done-tasks">
-									<!-- DONE TASKS HERE -->
-									 
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			<!-- END #content -->
+                        </div>
+                        <div class="" id="to-do-tasks">
+                            <!-- TO DO TASKS HERE -->
 
-			 
-			<!-- BEGIN scroll-top-btn -->
-			<a href="javascript:;" class="btn btn-icon btn-circle btn-success
-				btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
-			<!-- END scroll-top-btn -->
-			
-		</div>
-		<!-- END #app -->
+                        </div>
+                    </div>
+                </div>
+                <!--cart progress-->
+                <div class="col-xxl-4 col-md-6 col-sm-12 mb-4" ondragover="allowDrop(event)" ondrop="changeStatusProgress()">
+                    <div class="">
+                        <div class="col-12 rounded-top cart-background text-white p-3" id="progressTitle">
 
-		<!-- TASK MODAL -->
-			<div class="modal fade" id="modal-task" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-					  <div class="modal-header ">
-						<h2 >Add Task</h2>
-					  </div>
-					  <div class="modal-body">
-						<!--begin form-->
-						<form action="" class="form">
-							<div class="col-12 bg-red text-white h2 p-2 rounded-3 d-none " id="checkEmpty">
-								please remplire tous les champs
-							</div>
-							<div class="form-group">
-								<label for="title">Title</label>
-								<input type="text" class="form-control form-control-lg check"  id="title" required>
-							</div>
-							<label  class="mt-2">Type</label> <br>
-							<div class="form-check">
-								<input type="radio" value="feature" class="check" name="type" id="feature" required >
-								<label for="feature" >feature&emsp; </label>
-								<input type="radio" value="bug" class="check" name="type" id="bug"   required>
-								<label for="bug">bug</label>
-							</div>
-							<div class="mt-2 form-group">
-								<label for="priority"   >Priority</label>
-								<select name="priority"  class="form-select form-select-lg check" id="priority" required>
-									<option selected>please select</option>
-									<option value="Low">low</option>
-									<option value="Meduim">Meduim</option>
-									<option value="High">High </option>
-									
-								</select>
-							</div>
-							<div class="mt-2 form-group">
-								<label for="status"  >Status</label>
-								<select name="status"  class="form-select form-select-lg check" id="status" required>
-									<option selected>please select</option>
-									<option value="To Do">To Do</option>
-									<option value="In Progress">Progress</option>
-									<option value="Done">Done </option>
-									
-								</select>
-							</div>	
-							<div class="mt-2 form-group">
-								<label for="date"  >Date</label>
-								<input type="date" class=" form-control form-control-lg check" name="date" id="date" required>
-							</div>	
-							<div class="mt-2 form-group">
-								<label for="Description"   >Description</label> <br>
-								<textarea rows="5" class="form-control form-control-lg check"  id="Description" required></textarea>
-							</div>	
-								
- 						</form>
-						<!--end form-->
-					  </div>
-					  <div id="modelFooter"  class="modal-footer">
+                        </div>
+                        <div class="" id="in-progress-tasks">
+                            <!-- IN PROGRESS TASKS HERE -->
 
-					  </div>
-					</div>
-				  </div>
-			</div>
 
-		<!-- TASK MODAL DELETE AND UPDATE-->
- 		<!-- ================== BEGIN core-js ================== -->
-		
-		<script src="assets/js/vendor.min.js"></script>
-		<script src="assets/js/app.min.js"></script>
- 		<script src="assets/js/data.js"></script>
-		<script  src="assets/js/js.js"></script>
-		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        </div>
+                    </div>
+                </div>
+                <!--cart done-->
+                <div class="col-xxl-4 col-md-6 col-sm-12 mb-4 " ondragover="allowDrop(event)" ondrop="changeStatusDone()">
+                    <div class="">
+                        <div class="col-12 rounded-top cart-background text-white p-3" id="doneTitle">
 
-	</body>
-		<!-- ================== END core-js ================== -->
-	</body>
+                        </div>
+                        <div class=" " id="done-tasks">
+                            <!-- DONE TASKS HERE -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- END #content -->
+
+
+    <!-- BEGIN scroll-top-btn -->
+    <a class="btn btn-icon btn-circle btn-success
+				btn-scroll-to-top" data-toggle="scroll-to-top" href="javascript:"><i class="fa fa-angle-up"></i></a>
+    <!-- END scroll-top-btn -->
+
+</div>
+<!-- END #app -->
+
+<!-- TASK MODAL -->
+<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="modal-task" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h2 id="tasktitle"></h2>
+            </div>
+            <div class="modal-body">
+                <!--begin form-->
+                <form action="" class="form">
+                    <div class="col-12 bg-red text-white h2 p-2 rounded-3 d-none " id="checkEmpty">
+                        please remplire tous les champs
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input class="form-control form-control-lg check" id="title" required type="text">
+                    </div>
+                    <label class="mt-2">Type</label> <br>
+                    <div class="form-check">
+                        <input class="check" id="feature" name="type" required type="radio" value="feature">
+                        <label for="feature">feature&emsp; </label>
+                        <input class="check" id="bug" name="type" required type="radio" value="bug">
+                        <label for="bug">bug</label>
+                    </div>
+                    <div class="mt-2 form-group">
+                        <label for="priority">Priority</label>
+                        <select class="form-select form-select-lg check" id="priority" name="priority" required>
+                            <option selected>please select</option>
+                            <option value="Low">low</option>
+                            <option value="Meduim">Meduim</option>
+                            <option value="High">High</option>
+
+                        </select>
+                    </div>
+                    <div class="mt-2 form-group">
+                        <label for="status">Status</label>
+                        <select class="form-select form-select-lg check" id="status" name="status" required>
+                            <option selected>please select</option>
+                            <option value="To Do">To Do</option>
+                            <option value="In Progress">Progress</option>
+                            <option value="Done">Done</option>
+
+                        </select>
+                    </div>
+                    <div class="mt-2 form-group">
+                        <label for="date">Date</label>
+                        <input class=" form-control form-control-lg check" id="date" name="date" required type="date">
+                    </div>
+                    <div class="mt-2 form-group">
+                        <label for="Description">Description</label> <br>
+                        <textarea class="form-control form-control-lg check" id="Description" required
+                                  rows="5"></textarea>
+                    </div>
+
+                </form>
+                <!--end form-->
+            </div>
+            <div class="modal-footer" id="modelFooter">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TASK MODAL DELETE AND UPDATE-->
+<!-- ================== BEGIN core-js ================== -->
+<script src="assets/js/vendor.min.js"></script>
+<script src="assets/js/app.min.js"></script>
+<script src="assets/js/data.js"></script>
+<script  src="assets/js/js.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+<!-- ================== END core-js ================== -->
+</body>
 </html>

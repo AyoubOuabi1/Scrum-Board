@@ -1,7 +1,9 @@
 .pace {
     display: none;
 }
-
+*{
+    font-size:13px
+}
 .main-style {
     min-height: 100vh;
     background: url(../img/cover/cover-scrum-board.png) no-repeat fixed;
@@ -20,6 +22,6 @@ label{
 .backgound-btn{
     background-color: #9D84BF;
  }
-.cart-backgound{
+.cart-background{
     background-color: #5A278C;
 }
