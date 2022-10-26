@@ -11,7 +11,6 @@ let date = document.getElementById("date");
 let description = document.getElementById("Description");
 
 
-loadTasks();
 
 function loadTasks() {
     var c, t = 0, p = 0, d = 0;

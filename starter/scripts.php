@@ -16,10 +16,8 @@
     if(isset($_POST['delete']))      deleteTask();
 
 
-
-    function getTasks()
-    {
-        global $mysqli ;
+     function getTasks()
+    {  global $mysqli ;
 
         $rqt ="select tasks.id, tasks.title,tasktypes.name as typeName ,taskpriorities.name as priorityName,taskstatus.name as statusName, tasks.task_datetime,
                 tasks.description
@@ -28,11 +26,11 @@
                 inner join taskstatus  on tasks.status_id = taskstatus.id";
 
         $res=$mysqli->query($rqt);
-        $return_arr_json = array();
+        $return_arr = array();
         if($res->num_rows > 0){
 
             while ($row=$res->fetch_assoc()){
-                $return_arr_json[] = array(
+                $return_arr[] = array(
                     "id" => $row['id'],
                     "title" =>$row['title'],
                     "type" => $row['typeName'],
@@ -44,8 +42,9 @@
             }
 
         }
-        $mysqli->close();
-        return json_encode($return_arr_json) ;
+
+
+        return $return_arr;
     }
 
     function saveTask()
