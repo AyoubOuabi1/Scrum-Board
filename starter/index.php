@@ -105,7 +105,7 @@
 <!-- END #app -->
 
 <!-- TASK MODAL -->
-<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="modal-task" role="dialog"
+<div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" action="scripts.php" method="POST" class="modal fade" id="modal-task" role="dialog"
      tabindex="-1">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -120,42 +120,42 @@
                     </div>
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input class="form-control form-control-lg check" id="title" required type="text">
+                        <input class="form-control form-control-lg check" id="title" name="fTitle" required type="text">
                     </div>
                     <label class="mt-2">Type</label> <br>
                     <div class="form-check">
-                        <input class="check" id="feature" name="type" required type="radio" value="feature">
+                        <input class="check" id="feature" name="fType" required type="radio" value="1">
                         <label for="feature">feature&emsp; </label>
-                        <input class="check" id="bug" name="type" required type="radio" value="bug">
+                        <input class="check" id="bug" name="fType" required type="radio" value="2">
                         <label for="bug">bug</label>
                     </div>
                     <div class="mt-2 form-group">
                         <label for="priority">Priority</label>
-                        <select class="form-select form-select-lg check" id="priority" name="priority" required>
+                        <select class="form-select form-select-lg check" id="priority" name="fPriority" required>
                             <option selected>please select</option>
-                            <option value="Low">low</option>
-                            <option value="Meduim">Meduim</option>
-                            <option value="High">High</option>
+                            <option value="1">low</option>
+                            <option value="2">Meduim</option>
+                            <option value="3">High</option>
 
                         </select>
                     </div>
                     <div class="mt-2 form-group">
                         <label for="status">Status</label>
-                        <select class="form-select form-select-lg check" id="status" name="status" required>
+                        <select class="form-select form-select-lg check" id="status"  name="fStatus" required>
                             <option selected>please select</option>
-                            <option value="To Do">To Do</option>
-                            <option value="In Progress">Progress</option>
-                            <option value="Done">Done</option>
+                            <option value="1">To Do</option>
+                            <option value="2">Progress</option>
+                            <option value="3">Done</option>
 
                         </select>
                     </div>
                     <div class="mt-2 form-group">
                         <label for="date">Date</label>
-                        <input class=" form-control form-control-lg check" id="date" name="date" required type="date">
+                        <input class=" form-control form-control-lg check" id="date" name="fDate" required type="date">
                     </div>
                     <div class="mt-2 form-group">
                         <label for="Description">Description</label> <br>
-                        <textarea class="form-control form-control-lg check" id="Description" required
+                        <textarea class="form-control form-control-lg check" name="fDescription" id="Description" required
                                   rows="5"></textarea>
                     </div>
 
@@ -172,9 +172,7 @@
 <!-- TASK MODAL DELETE AND UPDATE-->
 <!-- ================== BEGIN core-js ================== -->
 <script src="assets/js/vendor.min.js"></script>
-<script src="assets/js/app.min.js"></script>
-<script src="assets/js/data.js"></script>
-<script  src="assets/js/js.js"></script>
+ <script  src="assets/js/script.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
