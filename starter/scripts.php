@@ -3,12 +3,6 @@
     include('database.php');
     //SESSSION IS A WAY TO STORE DATA TO BE USED ACROSS MULTIPLE PAGES
     session_start();
-/*    $title = $_POST['fTitle'];
-    $type = $_POST['fType'];
-    $priority = $_POST['fPriority'];
-    $status = $_POST['fStatus'];
-    $dateTask = $_POST['fDate'];
-    $description = $_POST['fDescription'];*/
 
 //ROUTING
     if(isset($_POST['save']))        saveTask();
@@ -16,14 +10,15 @@
     if(isset($_POST['delete']))      deleteTask();
 
 
-     function getTasks()
-    {  global $mysqli ;
+     function getTasks(){
+
+        global $mysqli ;
 
         $rqt ="select tasks.id, tasks.title,tasktypes.name as typeName ,taskpriorities.name as priorityName,taskstatus.name as statusName, tasks.task_datetime,
-                tasks.description
+                tasks.description 
                 from  tasks  inner join tasktypes  on tasks.type_id =tasktypes.id
                 inner join taskpriorities on tasks.priority_id = taskpriorities.id
-                inner join taskstatus  on tasks.status_id = taskstatus.id";
+                inner join taskstatus  on tasks.status_id = taskstatus.id order by tasks.id ASC ";
 
         $res=$mysqli->query($rqt);
         $return_arr = array();
@@ -49,9 +44,23 @@
 
     function saveTask()
     {
+        global $mysqli ;
+        $title = $_POST['fTitle'];
+        $type = $_POST['fType'];
+        $priority = $_POST['fPriority'];
+        $status = $_POST['fStatus'];
+        $dateTask = $_POST['fDate'];
+        $description = $_POST['fDescription'];
+        $rqt="CALL insertIntoTasks('$title', $type,$priority,$status,SYSDATE(),'$description')";
+        if ($mysqli->query($rqt) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $rqt . "<br>" . $mysqli->error;
+        }
+
         //CODE HERE
         //SQL INSERT
-        //$rqt="CALL insertIntoTasks('$title',2,2,2,SYSDATE(),'tttttttttttttttttttttttttttttt')";
+
         $_SESSION['message'] = "Task has been added successfully !";
 		header('location: index.php');
     }
@@ -60,6 +69,20 @@
     {
         //CODE HERE
         //SQL UPDATE
+        global $mysqli ;
+        $id= $_POST['fid'];
+        $title = $_POST['fTitle'];
+        $type = $_POST['fType'];
+        $priority = $_POST['fPriority'];
+        $status = $_POST['fStatus'];
+        $dateTask = $_POST['fDate'];
+        $description = $_POST['fDescription'];
+        $rqt="CALL updateTasks('$id','$title', $type,$priority,$status,SYSDATE(),'$description')";
+        if ($mysqli->query($rqt) === TRUE) {
+            echo "New record updated successfully";
+        } else {
+            echo "Error: " . $rqt . "<br>" . $mysqli->error;
+        }
         $_SESSION['message'] = "Task has been updated successfully !";
 		header('location: index.php');
     }
@@ -68,6 +91,14 @@
     {
         //CODE HERE
         //SQL DELETE
+        $id= $_POST['fid'];
+        global $mysqli ;
+        $sql = "DELETE FROM MyGuests WHERE id=$id";
+
+        if ($mysqli->query($sql) === TRUE) {
+            echo "Record deleted successfully";
+        }
+
         $_SESSION['message'] = "Task has been deleted successfully !";
 		header('location: index.php');
     }

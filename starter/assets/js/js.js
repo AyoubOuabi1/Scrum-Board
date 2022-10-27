@@ -10,86 +10,9 @@ let taskStatus = document.getElementById("status")
 let date = document.getElementById("date");
 let description = document.getElementById("Description");
 
-
-
-function loadTasks() {
-    var c, t = 0, p = 0, d = 0;
-    for (var i = 0; i < tasksTables.length; i++) {
-        c = i + 1;
-
-        if (tasksTables[i].status === "To Do") {
-            t++;
-            taskSection.innerHTML += `<button name="clickedButton" ondrag="dragTask(${i})" draggable="true"  class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="update(${i})">
-      <div class="row mt-2">
-        <div class="col-1 ">
-          <i class=" bi bi-exclamation-octagon text-red h1"></i>
-        </div>
-        <div class="col-11 ">
-          <div class="h3">${tasksTables[i].title}</div>
-          <div class="">
-            <div class="">#${c} created in ${tasksTables[i].date}</div>
-            <div class="" title="${tasksTables[i].description}">${tasksTables[i].description.substring(0, 70) + "...."}</div>
-          </div>
-          <div class="mb-3 mt-2">
-            <span class="btn btn-primary ">${tasksTables[i].priority}</span>
-            <span class="btn btn-secondary ">${tasksTables[i].type}</span>
-          </div>
-        </div>
-      </div>
-
-    </button>`
-            $('#todoTitle').html(`<h4 class="">To do (<span >${t}</span>)</h4>`)
-        } else if (tasksTables[i].status === "In Progress") {
-            p++;
-            progressSection.innerHTML += `<button name="clickedButton" ondrag="dragTask(${i})" draggable="true" class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="update(${i})">
-      <div class="row mt-2">
-        <div class="col-1 ">
-          <i class=" bi bi-arrow-clockwise text-green h1"></i>
-        </div>
-        <div class="col-11 ">
-          <div class="h3">${tasksTables[i].title}</div>
-          <div class="">
-            <div class="">#${c} created in ${tasksTables[i].date}</div>
-            <div class="" title="${tasksTables[i].description}">${tasksTables[i].description.substring(0, 70) + "...."}</div>
-          </div>
-          <div class="mb-3 mt-2">
-            <span class="btn btn-primary ">${tasksTables[i].priority}</span>
-            <span class="btn btn-secondary ">${tasksTables[i].type}</span>
-          </div>
-        </div>
-      </div>
-
-    </button>`
-            $('#progressTitle').html(`<h4 class="">In Progress(<span >${p}</span>)</h4>`)
-        } else if (tasksTables[i].status === "Done") {
-            d++;
-            doneSection.innerHTML += `<button name="clickedButton"  ondrag="dragTask(${i})" draggable="true"  class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="update(${i})">
-      <div class="row mt-2">
-        <div class="col-1 ">
-          <i class=" bi bi-check-circle text-green h1"></i>
-        </div>
-        <div class="col-11 ">
-          <div class="h3">${tasksTables[i].title}</div>
-          <div class="">
-            <div class="">#${c} created in ${tasksTables[i].date}</div>
-            <div class="" title="${tasksTables[i].description}">${tasksTables[i].description.substring(0, 70) + "...."}</div>
-          </div>
-          <div class="mb-3 mt-2">
-            <span class="btn btn-primary ">${tasksTables[i].priority}</span>
-            <span class="btn btn-secondary ">${tasksTables[i].type}</span>
-          </div>
-        </div>
-      </div>
-
-    </button>`
-            $('#doneTitle').html(`<h4 class="">Done (<span >${d}</span>)</h4>`)
-        }
-
-    }
-}
-
 function createTask() {
     $('#tasktitle').html("Add Task")
+
     document.getElementById("feature").checked = false;
     document.getElementById("bug").checked = false;
     $('#priority').prop('selectedIndex', 0);
@@ -98,7 +21,7 @@ function createTask() {
     $('#Description').val(' ')
     $('#modal-task').modal('show');
     $('#modelFooter').html(`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >cancel</button>
-    <button type="button" class="btn  backgound-btn text-white" id="saveTaskBtn" onclick="saveTask()">Save</button>`)
+    <button type="submit" name="save" class="btn  backgound-btn text-white" data-bs-dismiss="modal" id="saveTaskBtn" >Save</button>`)
 }
 
 function reloadTasks() {
@@ -153,14 +76,20 @@ function editeTask(i) {
 }
 
 function update(i) {
+    console.log(i)
+    let v='#'+i;
+    console.log(v)
+    let ar = $(${v}).data('stuff');
+    console.log(ar);
+    $('#idd').val(i+'');
     $('#modal-task').modal('show');
     $('#modelFooter').html(`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >cancel</button>
-    <button type="button" class="btn  btn-danger text-white " id="deleteTaskAfterCrud" onclick="deleteTask(${i})">Delete</button>
-    <button type="button" class="btn  backgound-btn text-white" id="updateTaskCrud" onclick="editeTask(${i})">Update</button>`);
-    initTaskForm(i);
+    <button type="submit" name="delete" class="btn  btn-danger text-white " id="deleteTaskAfterCrud"  >Delete</button>
+    <button type="button" name="update" class="btn  backgound-btn text-white" id="updateTaskCrud"  ">Update</button>`);
 }
 
 function deleteTask(index) {
+   
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -171,23 +100,40 @@ function deleteTask(index) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            tasksTables.splice(index, 1);
-            $('#modal-task').modal('hide');
-            reloadTasks();
-            Swal.fire(
-                'Deleted!',
-                'Your task has been deleted.',
-                'success'
-            )
+
+            $.ajax({
+                type: "GET", //we are using GET method to get data from server side
+                url: 'delete.php', // get the route value
+                data: {deleteId:index}, // get the route value
+                success: function (response) {//once the request successfully process to the server side it will return result here
+                    // Reload lists of employees
+
+
+
+                    $('#modal-task').modal('hide');
+
+                    Swal.fire(
+                        'Deleted!',
+                        'Your task has been deleted.',
+                        'success'
+                    )
+                },
+                error : function (e) {
+                    alert(e.errorDetail)
+
+                }
+            });
+
+
         }
     })
 
 
 }
 
-function initTaskForm(index) {
-    title.value = tasksTables[index].title;
-    if (tasksTables[index].type === "Feature") {
+function initTaskForm(data) {
+    title.value = data[1];
+    if (data[2] === "Feature") {
         document.getElementById("feature").checked = true;
         document.getElementById("bug").checked = false;
     } else {
@@ -195,10 +141,10 @@ function initTaskForm(index) {
         document.getElementById("bug").checked = true;
     }
 
-    priority.value = tasksTables[index].priority;
-    taskStatus.value = tasksTables[index].status;
-    date.value = tasksTables[index].date;
-    $('#Description').val(tasksTables[index].description)
+    priority.value = data[3];
+    taskStatus.value = data[4];
+    //date.value = tasksTables[index].date;
+    $('#Description').val(data[5])
 }
 
 function getSelectedRadio() {

@@ -1,7 +1,7 @@
 <?php
     require('database.php');
     include ('scripts.php');
-?>
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,153 +59,21 @@
             <div class="row">
                 <!--cart to do-->
                 <div class="col-xxl-4 col-md-6 col-sm-12 mb-4" ondragover="allowDrop(event)" ondrop="changeStatusToDo()">
-                    <div class="">
-                        <div class="col-12 rounded-top cart-background text-white p-3" id="DoneTitle">
-                            <?php
-                            $counterTodo=0;
-                            foreach (getTasks() as $row){
-
-                                if($row['status']=="To Do"){
-                                    $counterTodo++;
-                                }
-                            }
-                            echo '<h4 class="">To Do(<span >'.$counterTodo.'</span>)</h4>';
-
-                            ?>
-                        </div>
-                        <div class="" id="in-progress-tasks">  </div>
-                        <!-- TO DO  TASKS HERE -->
-                        <?php
-
-                        foreach (getTasks() as $row){
-
-                            if($row['status']=="To Do"){
-                                echo '<button name="clickedButton" ondrag="dragTask(${i})" draggable="true"  class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="update()">
-                                                <div class="row mt-2">
-                                                <div class="col-1 ">
-                                                    <i class="bi bi-exclamation-octagon text-red h1"></i>
-                                                </div>
-                                                <div class="col-11 ">
-                                                    <div class="h3"> '.$row["title"].'</div>
-                                                    <div class="">
-                                                    <div class=""># '.$row["id"].' created in '.$row["date"].'</div>
-                                                     <div class="" title=" $row["description"] "> '.$row["description"].' </div>
-                                                </div>
-                                                 <div class="mb-3 mt-2">
-                                                      <span class="btn btn-primary "> '.$row["priority"].' </span>
-                                                    <span class="btn btn-secondary "> '.$row["type"].' </span>
-                                                 </div>
-                                                </div>
-                                                </div>
-
-                                        </button>';
-                            }
-                        }
-                        ?>
-
-
-                    </div>
+                    <?php
+                        include './tasksSections/taskToDo.php';
+                    ?>
                 </div>
                 <!--cart progress-->
                 <div class="col-xxl-4 col-md-6 col-sm-12 mb-4" ondragover="allowDrop(event)" ondrop="changeStatusProgress()">
-                    <div class="">
-                        <div class="col-12 rounded-top cart-background text-white p-3" id="progressTitle">
-                        <?php
-                        $counter=0;
-                        foreach (getTasks() as $row){
-
-                            if($row['status']=="In Progress"){
-                                $counter++;
-                            }
-                        }
-                        echo ' <h4 class="">In Progress(<span >'.$counter.'</span>)</h4>';
-
-                        ?>
-                        </div>
-                        <div class="" id="in-progress-tasks">  </div>
-                            <!-- IN PROGRESS TASKS HERE -->
-                            <?php
-
-                            foreach (getTasks() as $row){
-
-                                if($row['status']=="In Progress"){
-                                    echo '<button name="clickedButton" ondrag="dragTask(${i})" draggable="true"  class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="update()">
-                                                <div class="row mt-2">
-                                                <div class="col-1 ">
-                                                    <i class=" bi bi-exclamation-octagon text-red h1"></i>
-                                                </div>
-                                                <div class="col-11 ">
-                                                    <div class="h3"> '.$row["title"].'</div>
-                                                    <div class="">
-                                                    <div class=""># '.$row["id"].' created in '.$row["date"].'</div>
-                                                     <div class="" title=" $row["description"] "> '.$row["description"].' </div>
-                                                </div>
-                                                 <div class="mb-3 mt-2">
-                                                      <span class="btn btn-primary "> '.$row["priority"].' </span>
-                                                    <span class="btn btn-secondary "> '.$row["type"].' </span>
-                                                 </div>
-                                                </div>
-                                                </div>
-
-                                        </button>';
-                                }
-                            }
-                            ?>
-
-
-                        </div>
-                    </div>
+                    <?php
+                        include './tasksSections/inProgress.php';
+                    ?>
                 </div>
-                <!--cart done-->
+                <!--Done-->
                 <div class="col-xxl-4 col-md-6 col-sm-12 mb-4 " ondragover="allowDrop(event)" ondrop="changeStatusDone()">
-                    <div class="">
-                        <div class="col-12 rounded-top cart-background text-white p-3" id="DoneTitle">
-                        <?php
-                        $counterDone=0;
-                        foreach (getTasks() as $row){
-
-                            if($row['status']=="Done"){
-                                $counterDone++;
-                            }
-                        }
-                        echo '<h4 class="">Done(<span >'.$counterDone.'</span>)</h4>';
-
-                        ?>
-                        </div>
-                        <div class="" id="in-progress-tasks">  </div>
-                        <!-- DONE TASKS HERE -->
-                        <?php
-
-                        foreach (getTasks() as $row){
-
-                            if($row['status']=="Done"){
-                                echo '<button name="clickedButton" ondrag="dragTask(${i})" draggable="true"  class="col-12 text-start btn-light text-black border-end-0 shadow-none" onclick="update()">
-                                                <div class="row mt-2">
-                                                <div class="col-1 ">
-                                                    <i class="bi bi-check-circle text-green h1"></i>
-                                                </div>
-                                                <div class="col-11 ">
-                                                    <div class="h3"> '.$row["title"].'</div>
-                                                    <div class="">
-                                                    <div class=""># '.$row["id"].' created in '.$row["date"].'</div>
-                                                     <div class="" title=" $row["description"] "> '.$row["description"].' </div>
-                                                </div>
-                                                 <div class="mb-3 mt-2">
-                                                      <span class="btn btn-primary "> '.$row["priority"].' </span>
-                                                    <span class="btn btn-secondary "> '.$row["type"].' </span>
-                                                 </div>
-                                                </div>
-                                                </div>
-
-                                        </button>';
-                            }
-                        }
-                        ?>
-
-
-                    </div>
-                </div>
-                </div>
+                    <?php
+                        include './tasksSections/doneTasks.php';
+                    ?>
             </div>
         </div>
 
@@ -231,11 +99,12 @@
             </div>
             <div class="modal-body">
                 <!--begin form-->
-                <form action="" class="form">
+                <form  method="POST" action="scripts.php" class="form" id="form">
                     <div class="col-12 bg-red text-white h2 p-2 rounded-3 d-none " id="checkEmpty">
                         please remplire tous les champs
                     </div>
                     <div class="form-group">
+                    <input class="form-control form-control-lg check d-none" id="idd" name="fid"  type="text">
                         <label for="title">Title</label>
                         <input class="form-control form-control-lg check" id="title" name="fTitle" required type="text">
                     </div>
@@ -275,13 +144,13 @@
                         <textarea class="form-control form-control-lg check" name="fDescription" id="Description" required
                                   rows="5"></textarea>
                     </div>
+                    <div class="modal-footer" id="modelFooter">
 
+                    </div>
                 </form>
                 <!--end form-->
             </div>
-            <div class="modal-footer" id="modelFooter">
 
-            </div>
         </div>
     </div>
 </div>
