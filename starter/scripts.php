@@ -92,15 +92,17 @@
         //CODE HERE
         //SQL DELETE
         $id= $_POST['fid'];
+        //CODE HERE
+        //SQL DELETE
         global $mysqli ;
-        $sql = "DELETE FROM MyGuests WHERE id=$id";
+        $sql = "DELETE FROM tasks WHERE id=$id";
 
         if ($mysqli->query($sql) === TRUE) {
             echo "Record deleted successfully";
         }
 
         $_SESSION['message'] = "Task has been deleted successfully !";
-		header('location: index.php');
+        header('location: index.php');
     }
 
 ?>

@@ -13,17 +13,20 @@ let description = document.getElementById("Description");
 function createTask() {
     $('#tasktitle').html("Add Task")
 
+    clearForm();
+    $('#modal-task').modal('show');
+    $('#modelFooter').html(`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >cancel</button>
+    <button type="submit" name="save" class="btn  backgound-btn text-white" data-bs-dismiss="modal" id="saveTaskBtn" >Save</button>`)
+}
+function  clearForm(){
+    $('#title').val(' ')
     document.getElementById("feature").checked = false;
     document.getElementById("bug").checked = false;
     $('#priority').prop('selectedIndex', 0);
     $('#status').prop('selectedIndex', 0);
     date.value = ' ';
     $('#Description').val(' ')
-    $('#modal-task').modal('show');
-    $('#modelFooter').html(`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >cancel</button>
-    <button type="submit" name="save" class="btn  backgound-btn text-white" data-bs-dismiss="modal" id="saveTaskBtn" >Save</button>`)
 }
-
 function reloadTasks() {
     taskSection.innerHTML = '';
     progressSection.innerHTML = '';
@@ -76,16 +79,17 @@ function editeTask(i) {
 }
 
 function update(i) {
-    console.log(i)
-    let v='#'+i;
-    console.log(v)
-    let ar = $(${v}).data('stuff');
-    console.log(ar);
+    let d=document.getElementById(i+'');
+    let e=d.getAttribute('data-form');
+    //let h=d[i].getAttribute('data-form');
+    console.log(e)
+    let arr=e.split(',');
+    initTaskForm(arr);
     $('#idd').val(i+'');
     $('#modal-task').modal('show');
     $('#modelFooter').html(`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >cancel</button>
     <button type="submit" name="delete" class="btn  btn-danger text-white " id="deleteTaskAfterCrud"  >Delete</button>
-    <button type="button" name="update" class="btn  backgound-btn text-white" id="updateTaskCrud"  ">Update</button>`);
+    <button type="submit" name="update" class="btn  backgound-btn text-white" id="updateTaskCrud"  ">Update</button>`);
 }
 
 function deleteTask(index) {
@@ -101,28 +105,6 @@ function deleteTask(index) {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            $.ajax({
-                type: "GET", //we are using GET method to get data from server side
-                url: 'delete.php', // get the route value
-                data: {deleteId:index}, // get the route value
-                success: function (response) {//once the request successfully process to the server side it will return result here
-                    // Reload lists of employees
-
-
-
-                    $('#modal-task').modal('hide');
-
-                    Swal.fire(
-                        'Deleted!',
-                        'Your task has been deleted.',
-                        'success'
-                    )
-                },
-                error : function (e) {
-                    alert(e.errorDetail)
-
-                }
-            });
 
 
         }
@@ -132,6 +114,7 @@ function deleteTask(index) {
 }
 
 function initTaskForm(data) {
+    clearForm();
     title.value = data[1];
     if (data[2] === "Feature") {
         document.getElementById("feature").checked = true;
@@ -140,13 +123,30 @@ function initTaskForm(data) {
         document.getElementById("feature").checked = false;
         document.getElementById("bug").checked = true;
     }
-
-    priority.value = data[3];
-    taskStatus.value = data[4];
+    if(data[3]==="Low"){
+        priority.value = 1;
+    }else if(data[3]==="Meduim"){
+        priority.value = 2;
+    }else if(data[3]==="High"){
+        priority.value = 3;
+    }
+    if(data[4]==="To Do"){
+        taskStatus.value = 1;
+    }else if(data[4]==="In Progress"){
+        taskStatus.value = 2;
+    }else if(data[4]==="Done"){
+        taskStatus.value = 3;
+    }
+    let dt=data[5].split(' ');
+    date.value=dt[0];
+   // $('#fDate').val(dt[0])
+    $('#Description').val(data[6])
     //date.value = tasksTables[index].date;
-    $('#Description').val(data[5])
-}
 
+}
+function  getDataWithAjax(){
+
+}
 function getSelectedRadio() {
     let typeChecked;
     for (let i = 0; i < type.length; i++) {
